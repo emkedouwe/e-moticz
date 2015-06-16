@@ -31,7 +31,7 @@
          <div 
             class="card col temp" 
             ng-repeat="light in devices" 
-            ng-if="light.Type === 'Temp + Humidity' && light.Favorite == 1"
+            ng-if="(light.Type === 'Temp + Humidity' || light.Type === 'Temp') && light.Favorite == 1"
             ng-model="light.checked">
             <div class="item item-text-wrap">
                <i class="icon ion-thermometer"></i>
@@ -70,7 +70,7 @@
          <div class="item item-text-wrap">
             <ion-list>
                <!-- Default Switches -->
-               <ion-toggle ng-repeat="light in devices" ng-if="(light.Type === 'Lighting 1' || light.Type === 'Lighting 2') && light.SwitchType != 'Contact' && light.SwitchType != 'Blinds' && light.SwitchType != 'Blinds Inverted' && light.Favorite == 1"
+               <ion-toggle ng-repeat="light in devices" ng-if="(light.Type === 'Lighting 1' || light.Type === 'Lighting 2' || light.Type === 'Lighting Limitless/Applamp') && light.SwitchType != 'Contact' && light.SwitchType != 'Blinds' && light.SwitchType != 'Blinds Inverted' && light.Favorite == 1"
                              ng-model="light.checked" 
                              ng-checked="light.checked"
                              ng-click="changeLight(light.idx,light.checked)"

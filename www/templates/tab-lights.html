@@ -41,7 +41,7 @@
                <ion-list>
 
                   <!-- Default Switches -->
-                  <ion-toggle ng-repeat="light in devices" ng-if="(light.Type === 'Lighting 1' || light.Type === 'Lighting 2') && light.SwitchType != 'Contact' && light.SwitchType != 'Blinds'"
+                  <ion-toggle ng-repeat="light in devices" ng-if="(light.Type === 'Lighting 1' || light.Type === 'Lighting 2' || light.Type === 'Lighting Limitless/Applamp') && light.SwitchType != 'Contact' && light.SwitchType != 'Blinds'"
                                 ng-model="light.checked" 
                                 ng-checked="light.checked"
                                 ng-click="changeLight(light.idx,light.checked)"
