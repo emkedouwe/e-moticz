@@ -1,0 +1,153 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+$positive:                        #57ab08;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+/* Header */
+.bar.bar-stable {
+	color: #FFF;
+	//background-color: #6A8AA6;
+	background: url(../img/background.jpg);
+	background-size: cover;
+
+	.button.button-clear {
+		color: #FFF;
+	}
+	.title {
+		color: #FFF;
+	}
+}
+
+/* Dashboard */
+.item-divider {
+	background-color: #79bb39;
+	color: #FFF;
+	text-transform: uppercase;
+
+	i {
+		font-size: 20px;
+	}
+}
+
+.energy,
+.temp {
+	border: none;
+	padding: 0px;
+
+	.item-content {
+		padding: 0px;
+	}
+
+	i {
+		float: left;
+		font-size: 50px;
+		color: $positive;
+	}
+
+	.info {
+		margin-left: 40px;
+		text-align: center;
+		height: 60px;
+
+		h3 {
+			color: $positive;
+			text-transform: uppercase;
+			font-size: 25px;
+			&.gas {
+				font-size: 20px;
+			}
+		}
+
+		h4 {
+			color: $positive;
+			text-transform: uppercase;
+			font-size: 12px;
+		}
+	}
+
+	h2 {
+		color: #FFF;
+		text-transform: uppercase;
+		text-align: center;
+	}
+}
+
+.temp {
+	.item {
+		padding: 5px 10px 0 20px;
+		.info {
+			h3 {
+				font-weight: 100;
+				font-size: 28px;
+				padding: 10px 0px;
+			}
+		}
+	}
+}
+
+button.scene {
+	border: none;
+	
+	i {
+		color: $positive;
+	}
+}
+
+
+.contact {
+	i {
+		font-size: 30px;
+		float: left;
+		margin-right: 10px;
+	}
+}
+
+.status {
+	font-weight: 100;
+}
+
+h2.temp {
+	font-size: 36px;
+	font-weight: 100;
+	float: left;
+	margin-right: 20px;
+}
+
+.humidity {
+	font-size: 16px;
+	font-weight: 100;
+}
+
+.energy {
+	text-align: center;
+}
+
+canvas {
+	margin-top: 20px;
+    //width: 100% !important;
+    //max-width: 800px;
+    //height: auto !important;
+}
+
+.scroll-refresher {
+  	
+}

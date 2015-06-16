@@ -1,0 +1,22 @@
+<ion-view view-title="Energy">
+  <ion-content>
+  	<ion-refresher
+      	pulling-text="Pull to refresh..."
+      	on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+  	<ion-item class="card" ng-repeat="device in devices" ng-if="device.Type === 'P1 Smart Meter'" href="#/tab/energy/{{device.idx}}">
+  	  <div class="item item-text-wrap energy" >
+        
+        {{device.Name}}
+
+  	    <h1>{{device.Usage}}</h1>
+
+  	    <h3>Vandaag: {{device.CounterToday}}</h3>
+
+  	    <h3>Totaal: {{device.Counter}}</h3>
+  	  </div>
+	</ion-item>
+  </ion-list>
+  </ion-content>
+</ion-list>

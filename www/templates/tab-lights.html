@@ -1,0 +1,76 @@
+<ion-view view-title="Lights">
+   <ion-content>
+      <ion-refresher
+         pulling-text="Pull to refresh..."
+         on-refresh="doRefresh()">
+      </ion-refresher>
+
+      <!-- Groepen -->
+      <ion-list>
+         <div class="card">
+            <div class="item item-divider">
+               <i class="icon ion-toggle"></i> Groups
+            </div>
+            <div class="item item-text-wrap">
+               <ion-list>
+                  <ion-toggle ng-repeat="light in devices" ng-if="light.Type === 'Group'"
+                                ng-model="light.checked" 
+                                ng-checked="light.checked"
+                                ng-click="changeGroup(light.idx,light.checked)">
+                     {{ light.Name }}
+                  </ion-toggle>
+                  <ion-item ng-repeat="light in devices" ng-if="light.Type === 'Scene'"
+                                ng-model="light.checked" 
+                                ng-checked="false"
+                                class="item-button-right">
+                     {{ light.Name }}
+                     <button class="button button-light scene" ng-click="changeGroup(light.idx,light.checked)">
+                        <i class="icon ion-ios7-play"></i>
+                     </button>
+                  </ion-item>
+               </ion-list>
+            </div>
+         </div>
+
+         <!-- Schakelaars -->
+         <div class="card">
+            <div class="item item-divider">
+               <i class="icon ion-ios7-lightbulb-outline"></i> Switches
+            </div>
+            <div class="item item-text-wrap">
+               <ion-list>
+
+                  <!-- Default Switches -->
+                  <ion-toggle ng-repeat="light in devices" ng-if="(light.Type === 'Lighting 1' || light.Type === 'Lighting 2') && light.SwitchType != 'Contact' && light.SwitchType != 'Blinds'"
+                                ng-model="light.checked" 
+                                ng-checked="light.checked"
+                                ng-click="changeLight(light.idx,light.checked)"
+                                ng-disabled="{{ light.Protected }}">
+                     {{ light.Name }}
+                  </ion-toggle>
+
+                  <!-- Blinds -->
+                  <ion-item ng-repeat="light in devices" ng-if="light.SwitchType === 'Blinds' || light.SwitchType === 'Blinds Inverted'" class="item-button-right">
+                    {{ light.Name }} <span class="status">({{ light.Status }})</span>
+                    <div class="buttons">
+                      <button class="button button-positive" ng-click="changeLight(light.idx,1)"><i class="icon ion-chevron-down"></i></button>
+                      <button class="button button-positive" ng-click="changeLight(light.idx,0)"><i class="icon ion-chevron-up"></i></button>
+                    </div>
+                  </ion-item>
+
+                  <!-- Contact Switches -->
+                  <ion-item ng-repeat="light in devices" ng-if="light.SwitchType === 'Contact'">
+                     <div class="contact" ng-if="light.Status == 'Closed'">
+                        <i class="icon ion-ios7-locked-outline"></i> {{ light.Name }}<br /><span class="status">{{ light.Status }}</span>
+                     </div>
+                     <div class="contact" ng-if="light.Status == 'Open'">
+                        <i class="icon ion-ios7-unlocked-outline"></i> {{ light.Name }}<br /><span class="status">{{ light.Status }}</span>
+                     </div>
+                  </ion-item>
+
+               </ion-list>
+            </div>
+         </div>
+      </ion-list>
+   </ion-content>
+</ion-view>

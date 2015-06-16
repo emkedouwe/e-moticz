@@ -1,0 +1,43 @@
+<ion-view view-title="Settings">
+   <ion-content>
+      <form ng-submit="saveData(settings)">
+         <div class="item item-divider">
+            Server settings
+         </div>
+         <div class="list">
+            <label class="item item-input item-stacked-label">
+               <span class="input-label">Address</span>
+               <input type="text" placeholder="127.0.0.0" ng-model="settings.address">
+            </label>
+            <label class="item item-input item-stacked-label">
+               <span class="input-label">Port</span>
+               <input type="text" placeholder="8080" ng-model="settings.port">
+            </label>
+         </div>
+         <div class="item item-divider">
+            Authentication
+         </div>
+         <div class="list">
+            <label class="item item-input item-stacked-label">
+               <span class="input-label">Username</span>
+               <input type="text" placeholder="admin" ng-model="settings.username">
+            </label>
+            <label class="item item-input item-stacked-label">
+               <span class="input-label">Password</span>
+               <input type="password" placeholder="8080" ng-model="settings.password">
+            </label>
+            <ion-item class="item-toggle">Login required
+               <label class="toggle">
+                  <input type="checkbox" ng-model="settings.enableAuth">
+                  <div class="track">
+                     <div class="handle"></div>
+                  </div>
+               </label>
+            </ion-item>
+         </div>
+         <div class="padding">
+            <button class="button button-block button-positive" type="submit">Save</button>
+         </div>
+      </form>
+   </ion-content>
+</ion-view>

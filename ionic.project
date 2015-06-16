@@ -1,0 +1,12 @@
+{
+  "name": "e-moticz",
+  "app_id": "63b36e9b",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}
